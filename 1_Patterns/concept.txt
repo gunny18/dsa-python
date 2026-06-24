@@ -1,0 +1,6 @@
+To solve any pattern a general set of rules can be followed.
+
+1. Figure out number of lines to be printed. Outer loop depends on it.
+2. Observe what is happening at each line. Try to connect with outer loop if possible. Inner loop is based on this.
+3. Execute (Print) when needed.
+4. Observe symmetry (When asked to or required)
