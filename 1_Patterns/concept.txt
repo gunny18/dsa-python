@@ -2,5 +2,9 @@ To solve any pattern a general set of rules can be followed.
 
 1. Figure out number of lines to be printed. Outer loop depends on it.
 2. Observe what is happening at each line. Try to connect with outer loop if possible. Inner loop is based on this.
+    - Say your outer loop runs N times.
+    - Each iteration gives you i.
+    - Figure out some relation to do some task per line as a function of N or i or (N,i)
 3. Execute (Print) when needed.
 4. Observe symmetry (When asked to or required)
+    - Most cases in top down symetry you just need to reverse loops
