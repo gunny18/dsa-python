@@ -1,0 +1,15 @@
+What ?
+    - At core, it is a character array.
+    - Depending on the language the string object itself can be mutable or immutable
+    - In python it is immutable
+    - So we cannot change/modify using index access
+    - We can read, not modify using index access
+    - s = "Hello"
+    - s + " hhh", returns a new string, does not modify object s
+
+Character ASCII values:
+    - Every character has an ASCII value
+    - 'A' -> 65
+    - 'Z' -> 90
+    - 'a' -> 97
+    - 'z' -> 122
