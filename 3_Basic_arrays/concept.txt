@@ -1,0 +1,15 @@
+What?
+    - They are linear contiguous data structure
+    - Stores in contiguous memory locations
+    - Can store only 1 data type i.e homogenous data structure
+    - Fixed in size
+    - 0-based index access
+    - Array of size n -> indexes -> 0 to n-1
+
+Language specific:
+    - Above rules/properties are what make an array!
+    - Ex:- In python we have list
+    - We can use list, like an array, ensuring we follow above properties of an array
+    - List is actually a Linked list implementation, and not exactly an array
+    - So same applies to any language.
+    - In any language, an array data structure has to follow above properties, to be called an array
