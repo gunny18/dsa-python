@@ -1,0 +1,76 @@
+What is hashing ?
+    - Typically hashing is a technique used for:
+        - Fast data retrieval
+        - Speeding data lookups
+    - Typically we take an input like a number or sting
+    - Convert it to a hash
+    - This hash points to where in hash table the data is stored corresponding to given input
+
+Number hashing:
+    - Input: number
+    - number -> hashing algorithm -> number hash
+    - number hash -> acts as hash index
+    - Retrieves data from hash table using hash index for given input
+
+Pre computing:
+    - This technique is particularly useful when hash table is pre computed
+    - So its time taking on the first run (Since the has table has to be built)
+    - From second time, the operation we are trying is easier as we can refer the data we need from hash table
+
+Example - Number of occurrrences of elements in array
+    - Say we have an array [1,4,2,2,3,6,4,4,5,6]
+    - We know one of the main operations we would need to perform repeatedly is given a number in an array, find its 
+    occurrences.
+    - So we write an algorithm which takes an array as input and the number.
+    - Every time we would need to traverse array -> TC -> O(n)
+    - Say we know we would be given a set of numbers say Q numbers, we need to find occurrences.
+    - With this, the TC -> O(Q*n).
+    - This is not optimal
+
+    Number hashing:
+        - Say even before we support these operations, we build a hash table.
+        - From above example, largest value is 6.
+        - So we take an array of size 6
+        - Hash index is given as num-1
+        - Hash index of number 6 -> 6-1 = 5
+        Pre-compute counts
+            - We traverse array
+            - Fill in hash table to hold occurrences of each element.
+            - TC -> O(n)
+            - SC -> O(Q)
+        - Now to perform counts operation for Q numbers:
+            - TC -> O(1) for every query/count operation.
+            - Because it is just data retrieval from hash table, which is pre-computed with occurrences.
+        Now TC -> O(n) + O(1*Q) <<<< O(n*Q)
+            SC -> O(Q)
+
+Note:
+    - Hashing is noteworthy when we expect the same operation to be performed repeatedly for different inputs.
+    - If I know the operation is going to be performed rarely, I would not go through hashing.
+    - A basic algorithm would suffice
+    - Why the extra space if operation is rare and not frequent ?
+
+Real life applications:
+    - Databases
+    - Often use concept of hashing to improve searching
+    - As we know in an application DB, there will be querying for almost every API.
+    - We will know exactly which API will be executed frequently, and can ensure hashing is applied
+    for the speicifc set of queries that are part of those APIs
+
+
+Character hashing
+    - Say now we have an array of characters and need to find occurrences.
+    - We use the fact that every character has an ASCII value.
+    - Consider only the lowe case characters
+    - 'a'->97
+    - 'z'->122
+    - We could always have an array as hash table of size 123(0->122)
+    - Better yet!
+        - We have 26 characters from a to z.
+        - So we just have a 26 size array as hash table.
+        - Computing hash indexes.
+            - Say we need to find occurrences of 'z'.
+            - ASCII('z') - ASCII('a')
+            -> 122-97 -> 26.
+            -> Stored at 26th index in hash table.
+            -> This way can find hash index of any character
