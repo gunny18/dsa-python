@@ -1,0 +1,62 @@
+What is recursion ?
+    - A function calling itself
+    - This phenomena is called recursion
+    - That function is said to be a recursive function
+
+Example:
+    print_name(){
+        print_name()
+    }
+    print_name()
+    - Function keeps calling itself.
+    - Just imagine, stack is just being pushed with these function calls
+    - Never does the function die/end/return
+    - This is an endless loop of recursion
+    - Such a recursion is not of any use in a program
+
+Segmentation Fault/Stack overflow
+    - The above scenario will eventually lead the program to throw a segmentation error
+    - This is due to the fact that the stack is being filled with funciton calls, without evern being popped
+    - Because every function call never returns
+    - Causes the stack to go out of memory eventually
+    - Imagine the RAM being filled with these function calls, each never being popped/returned
+    - Program never ends
+
+Recursion:
+    - A function needs to call itself
+    - There must be a base condition where at one of the recursive calls, function ends
+    - And all the leading/parent function calls returns eventually
+
+Remember:
+    - Recursion -> Base Condition -> Program Stack -> Segmentation fault
+
+Types of recursion:
+    Tail recursion:
+        - The recusive call is the last unit of work in a function.
+        - Structure:
+            Base Condition
+            Work/Task
+            Recursive call
+        - There is nothing to do after it
+
+        Analogy:
+            - You are climbing down the stairs
+            - At each step you do some work, and go down one step
+            - You reach bottom (Base condition)
+            - You climb back up
+            - At each step you dont do anything, just keep climbing back up
+            - So Climbing down is slower compared to climbing back up
+    Head recursion:
+        - The actual work is done after the recursive function call
+        - Structure:
+            Base Condition
+            Recursive call
+            Work/Task
+        
+        Analogy:
+            - You climb down the stairs
+            - At each step, you dont do anything, just keep going down
+            - You reach bottom (Base condition)
+            - Now start climbing back up
+            - At each step you do some work, then go up another step
+            - Climbing down is faster compared to climbing up
