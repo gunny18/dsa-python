@@ -37,6 +37,9 @@ Algorithm:
                     - Return partition index
 - Repeat for left parition
 - Repeat for right partition
+
+TC -> O(nlogn)
+SC -> O(Auxiliary stack space)
 """
 
 def partition(arr, start, end):

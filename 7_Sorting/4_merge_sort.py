@@ -34,6 +34,8 @@ TC ->
     - At each step the recursion tree has depth of logn
     - And we have height of tree as n
     - TC -> O(nlogn) <<< O(nxn)
+
+SC -> O(temp array) + O(Auxiliary stack space)
 """
 
 import math
