@@ -33,6 +33,7 @@ Approach 2:
 - SC -> O(1)
 """
 
+
 def brute_force(num):
     sum = 0
     for i in range(1, num):
@@ -40,17 +41,42 @@ def brute_force(num):
             sum += i
     return sum == num
 
+
 def optmised(num):
     sum = 1
     i = 2
-    while i*i <= num:
+    while i * i <= num:
         if num % i == 0:
             sum += i
-            if i != (num/i):
-                sum += (num/i)
+            if i != (num / i):
+                sum += num / i
         i += 1
-    
+
     return sum == num
+
+
+"""
+- Same as above optimised version.
+- Handles edge cases better, like n=1, is not a perfect number!
+- Early exit if sum inside loop is already > number!
+- Not adding perfect square root (16) devisor twice!
+"""
+
+
+def isPerfect(n: int) -> bool:
+    i = 1
+    divisor_sum = 0
+    while i * i <= n:
+        primary_divisor = n % i
+        if primary_divisor == 0 and i != n:
+            divisor_sum += i
+            other_divisor = n // i
+            if i != other_divisor and other_divisor != n:
+                divisor_sum += other_divisor
+        if divisor_sum > n:
+            return False
+        i += 1
+    return divisor_sum == n
 
 
 print(brute_force(28))
@@ -60,3 +86,4 @@ print(brute_force(12))
 print(optmised(28))
 print(optmised(36))
 print(optmised(12))
+print(optmised(1))

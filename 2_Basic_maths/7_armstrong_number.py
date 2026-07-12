@@ -9,11 +9,16 @@ n = 153
 1^3 + 5^3 + 3^3
 1+125+27 = 153
 Hence n = 153 is an armstrong number
+
+- 0 is an armstrong number!
 """
 
 import math
 
+
 def check_armstrong(num):
+    if num == 0:
+        return True
     num_digits = math.floor(math.log10(num) + 1)
     org_num = num
     sum = 0
@@ -24,6 +29,7 @@ def check_armstrong(num):
             return False
         num = num // 10
     return sum == org_num
+
 
 print(check_armstrong(153))
 print(check_armstrong(123))
