@@ -42,6 +42,7 @@ TC -> O(nlogn)
 SC -> O(Auxiliary stack space)
 """
 
+
 def partition(arr, start, end):
     pivot = arr[start]
     i = start
@@ -59,13 +60,15 @@ def partition(arr, start, end):
     arr[start], arr[j] = arr[j], arr[start]
     return j
 
+
 def quick_sort(arr, start, end):
     if start >= end:
         return
     partition_index = partition(arr, start, end)
-    quick_sort(arr, start, partition_index-1)
-    quick_sort(arr,partition_index+1, end)
+    quick_sort(arr, start, partition_index - 1)
+    quick_sort(arr, partition_index + 1, end)
     return arr
 
-arr = [4,6,2,5,7,9,1,3]
-print(quick_sort(arr, 0, len(arr)-1))
+
+arr = [4, 6, 2, 5, 7, 9, 1, 3]
+print(quick_sort(arr, 0, len(arr) - 1))

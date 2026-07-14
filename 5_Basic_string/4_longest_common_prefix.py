@@ -36,6 +36,7 @@ Approach 2:
         - Usuallly the horizontal scanning/brute force is more efficient in this case!
 """
 
+
 def brute_force_approach(strs):
     if len(strs) == 1:
         return strs[0]
@@ -45,10 +46,11 @@ def brute_force_approach(strs):
         for i in range(1, len(strs)):
             if j >= len(strs[i]) or strs[i][j] != initial[j]:
                 return prefix
-        
+
         prefix += initial[j]
 
     return prefix
+
 
 def sorted_longest_prefix(strs):
     if len(strs) == 1:
@@ -65,10 +67,11 @@ def sorted_longest_prefix(strs):
             i += 1
         else:
             break
-    return prefix 
+    return prefix
 
-print(brute_force_approach(["flower","flow","flaw","flute"]))
-print(brute_force_approach(["dog" , "cat" , "animal", "monkey"]))
 
-print(sorted_longest_prefix(["flower","flow","flaw","flute"]))
-print(sorted_longest_prefix(["dog" , "cat" , "animal", "monkey"]))
+print(brute_force_approach(["flower", "flow", "flaw", "flute"]))
+print(brute_force_approach(["dog", "cat", "animal", "monkey"]))
+
+print(sorted_longest_prefix(["flower", "flow", "flaw", "flute"]))
+print(sorted_longest_prefix(["dog", "cat", "animal", "monkey"]))

@@ -30,13 +30,15 @@ Notes:
 
 """
 
+
 def find_min_element_index(nums, start_index):
     min_index = start_index
     for i in range(start_index, len(nums)):
         if nums[i] < nums[min_index]:
             min_index = i
-    
+
     return min_index
+
 
 def selection_sort(nums):
     n = len(nums)
@@ -45,7 +47,7 @@ def selection_sort(nums):
         min_index = find_min_element_index(nums, step)
         nums[step], nums[min_index] = nums[min_index], nums[step]
 
-    print(nums)
+    return nums
 
 
-selection_sort([13,46,24,52,20,9])
+print(selection_sort([13, 46, 24, 52, 20, 9]))
