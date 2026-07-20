@@ -19,20 +19,17 @@ Approach 1:
         - Just temp variables
 """
 
+
 def left_rotate_array_by_one_1(nums):
     n = len(nums)
-    if n == 1:
-        return nums
-    i = 1
-    first_ele = nums[0]
-    while i < n:
+    i = 0
+    while i < n - 1:
         # Even if you dont replace with None, and keep it as it is, it works just fine!
-        nums[i-1], nums[i] = nums[i], None
-        if i == n-1:
-            nums[i] = first_ele
+        nums[i], nums[i + 1] = nums[i + 1], nums[i]
         i += 1
     return nums
 
-print(left_rotate_array_by_one_1([1,2,3,4,5]))
-print(left_rotate_array_by_one_1([1,2]))
-print(left_rotate_array_by_one_1([-11,2,3,4,19]))
+
+print(left_rotate_array_by_one_1([1, 2, 3, 4, 5]))
+print(left_rotate_array_by_one_1([1, 2]))
+print(left_rotate_array_by_one_1([-11, 2, 3, 4, 19]))

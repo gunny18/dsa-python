@@ -29,6 +29,7 @@ Approach 3: Set
     - SC -> O(n1+n2) + O(n1+n2)
 """
 
+
 def union_of_2_sorted_array_app1(nums1, nums2):
     i = 0
     j = 0
@@ -37,32 +38,33 @@ def union_of_2_sorted_array_app1(nums1, nums2):
     n2 = len(nums2)
 
     res = []
-    
+
     while i < n1 and j < n2:
         if nums1[i] == nums2[j]:
-            if (len(res) == 0 or res[-1] != nums1[i]):
+            if len(res) == 0 or res[-1] != nums1[i]:
                 res.append(nums1[i])
             i += 1
             j += 1
         elif nums1[i] < nums2[j]:
-            if (len(res) == 0 or res[-1] != nums1[i]):
-                res.append(nums1[i])    
+            if len(res) == 0 or res[-1] != nums1[i]:
+                res.append(nums1[i])
             i += 1
-        elif nums1[i] > nums2[j]:
-            if (len(res) == 0 or res[-1] != nums2[j]):
+        else:
+            if len(res) == 0 or res[-1] != nums2[j]:
                 res.append(nums2[j])
             j += 1
-    
+
     while i < n1:
-        if (len(res) == 0 or res[-1] != nums1[i]):
+        if len(res) == 0 or res[-1] != nums1[i]:
             res.append(nums1[i])
         i += 1
 
     while j < n2:
-        if (len(res) == 0 or res[-1] != nums2[j]):
+        if len(res) == 0 or res[-1] != nums2[j]:
             res.append(nums2[j])
         j += 1
-    
+
     return res
 
-print(union_of_2_sorted_array_app1([1,2,3,4,5],[1,2,7]))
+
+print(union_of_2_sorted_array_app1([1, 2, 3, 4, 5], [1, 2, 7]))

@@ -19,6 +19,8 @@ Approach 1:
     - Repeat process for k times/steps
     TC -> Since we are shifting until last element, and doing it for k steps
         ~ O(kxn)
+        - Max k can be n-1
+        - So TC --> O(nxn-1) ==> O(n^2)
     SC -> O(1)
         - Just temp variables
 
@@ -44,7 +46,7 @@ Approach 2:
         - Put temp[0] in nums[4]
         - temp[1] in nums[5]
         - temp[i-(n-d)] = nums[i]
-    
+
     TC:
         - O(d) temp array
         - O(n-d) shift remaining array each by d places
@@ -75,6 +77,7 @@ Approach 3: By reversals
         - No temp array!
 """
 
+
 def left_rotate_array_by_k_1(nums, k):
     n = len(nums)
     if n == 1:
@@ -83,12 +86,13 @@ def left_rotate_array_by_k_1(nums, k):
         i = 1
         first_ele = nums[0]
         while i < n:
-            nums[i-1] = nums[i]
-            if i == n-1:
+            nums[i - 1] = nums[i]
+            if i == n - 1:
                 nums[i] = first_ele
             i += 1
         k -= 1
     return nums
+
 
 def left_rotate_array_by_k_2(nums, k):
     n = len(nums)
@@ -97,21 +101,23 @@ def left_rotate_array_by_k_2(nums, k):
     # Effective no of left rotates
     k = k % n
     # temp array
-    temp = [nums[i] for i in range(0,k)]
+    temp = [nums[i] for i in range(0, k)]
     # Shift remaining elements by k places each
     for i in range(k, n):
-        nums[i-k] = nums[i]
+        nums[i - k] = nums[i]
     # Place back k temp elements
-    for i in range(n-k,n):
-        nums[i] = temp[i-(n-k)]
-    
+    for i in range(n - k, n):
+        nums[i] = temp[i - (n - k)]
+
     return nums
+
 
 def reverse_array(nums, start, end):
     while start < end:
         nums[start], nums[end] = nums[end], nums[start]
         start += 1
         end -= 1
+
 
 def left_rotate_by_k_using_reversals(nums, k):
     n = len(nums)
@@ -120,21 +126,20 @@ def left_rotate_by_k_using_reversals(nums, k):
     # Effective no of left rotates
     k = k % n
     # Reverse d elements
-    reverse_array(nums, 0, k-1)
+    reverse_array(nums, 0, k - 1)
     # Reverse remaining array
-    reverse_array(nums, k, n-1)
+    reverse_array(nums, k, n - 1)
     # Reverse complete array
-    reverse_array(nums, 0, n-1)
+    reverse_array(nums, 0, n - 1)
     # return nums
     return nums
 
 
+print(left_rotate_array_by_k_1([1, 2, 3, 4, 5, 6], 2))
+print(left_rotate_array_by_k_1([1], 2))
+print(left_rotate_array_by_k_1([1, 2], 1))
+print(left_rotate_array_by_k_1([1, 2], 2))
 
-print(left_rotate_array_by_k_1([1,2,3,4,5,6],2))
-print(left_rotate_array_by_k_1([1],2))
-print(left_rotate_array_by_k_1([1,2],1))
-print(left_rotate_array_by_k_1([1,2],2))
+print(left_rotate_array_by_k_2([1, 2, 3, 4, 5, 6], k=2))
 
-print(left_rotate_array_by_k_2([1,2,3,4,5,6],k=2))
-
-print(left_rotate_by_k_using_reversals([1,2,3,4,5,6],k=2))
+print(left_rotate_by_k_using_reversals([1, 2, 3, 4, 5, 6], k=2))
